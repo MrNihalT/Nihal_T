@@ -991,6 +991,7 @@ nav.navbar span {
 
     .grid.grid--projects {
         grid-template-columns: 1fr;
+        display:block;
     }
 
     nav.navbar span {
