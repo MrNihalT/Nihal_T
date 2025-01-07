@@ -1,3 +1,27 @@
+@media screen and (max-width: 972px) {
+    .grid.grid--design-projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid.grid--projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+
+    .flex.flex--about {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .flex.flex--social-icons {
+        justify-content: center;
+    }
+}
 :root {
     --primary-color: #161b1e;
     --primary-color-alt: #22282a;
@@ -967,10 +991,6 @@ nav.navbar span {
 
     .grid.grid--projects {
         grid-template-columns: 1fr;
-    }
-
-    .grid.grid--projects > :nth-last-child(-n + 3) {
-        display: none;
     }
 
     nav.navbar span {
