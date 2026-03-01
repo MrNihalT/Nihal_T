@@ -191,7 +191,9 @@ button.btn-arrow span {
     cursor: pointer;
     display: inline-block;
     position: relative;
-    transition: 0.5s, color 0.1s;
+    transition:
+        0.5s,
+        color 0.1s;
 }
 
 button.btn-arrow span:after {
@@ -991,7 +993,7 @@ nav.navbar span {
 
     .grid.grid--projects {
         grid-template-columns: 1fr;
-        display:block;
+        display: block;
     }
 
     nav.navbar span {
