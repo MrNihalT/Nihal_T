@@ -59,7 +59,7 @@ function setParticles(e, t) {
             },
             move: {
                 enable: !0,
-                speed: 2,
+                speed: 5,
                 direction: "none",
                 random: !1,
                 straight: !1,
@@ -75,7 +75,7 @@ function setParticles(e, t) {
             detect_on: "canvas",
             events: {
                 onhover: {
-                    enable: !1,
+                    enable: 20,
                     mode: "repulse",
                 },
                 onclick: {
@@ -112,7 +112,7 @@ function setParticles(e, t) {
         retina_detect: !0,
     });
 }
-e_showMoreProjects.addEventListener("click", () => {
+(e_showMoreProjects.addEventListener("click", () => {
     if ("Show More" === e_showMoreProjects.innerText) {
         let e = e_partProjects.querySelectorAll("[data-hidden]");
         for (const t of e) t.classList.toggle("display-none");
@@ -123,7 +123,7 @@ e_showMoreProjects.addEventListener("click", () => {
         e_showMoreProjects.innerText = "Show More";
     }
 }),
-    setParticles("#ffffff", "#ffffff");
+    setParticles("#ffffff", "#ffffff"));
 const quotes = [
     [
         "Perfection [in design] is achieved, not when there is nothing more to add, but when there is nothing left to take away.",
@@ -159,11 +159,13 @@ const quotes = [
 
 function randomQuote() {
     var e = quotes[Math.floor(Math.random() * quotes.length)];
-    (document.getElementById("quote-content").innerText = e[0]),
-        (document.getElementById("quote-author").innerText = "~ " + e[1]);
+    ((document.getElementById("quote-content").innerText = e[0]),
+        (document.getElementById("quote-author").innerText = "~ " + e[1]));
 }
-document.getElementById("quote-content").addEventListener("click", randomQuote),
-    randomQuote();
+(document
+    .getElementById("quote-content")
+    .addEventListener("click", randomQuote),
+    randomQuote());
 const container = ".tagcloud",
     texts = [
         "Python",
@@ -187,28 +189,28 @@ const container = ".tagcloud",
 TagCloud(container, texts, options);
 class TextRotate {
     constructor(e, t, o) {
-        (this.toRotate = t),
+        ((this.toRotate = t),
             (this.element = e),
             (this.loopNum = 0),
             (this.period = parseInt(o, 10) || 2e3),
             (this.text = ""),
             this.tick(),
-            (this.isDeleting = !1);
+            (this.isDeleting = !1));
     }
     tick() {
         let e = this.loopNum % this.toRotate.length,
             t = this.toRotate[e];
-        (this.text = this.isDeleting
+        ((this.text = this.isDeleting
             ? t.substring(0, this.text.length - 1)
             : t.substring(0, this.text.length + 1)),
-            (this.element.innerHTML = `<span class="wrap">${this.text}</span>`);
+            (this.element.innerHTML = `<span class="wrap">${this.text}</span>`));
         let o = 100 - 100 * Math.random();
-        this.isDeleting && (o /= 2),
+        (this.isDeleting && (o /= 2),
             this.isDeleting || this.text !== t
                 ? this.isDeleting &&
                   "" === this.text &&
                   ((this.isDeleting = !1), this.loopNum++, (o = 500))
-                : ((o = this.period), (this.isDeleting = !0));
+                : ((o = this.period), (this.isDeleting = !0)));
         let i = this;
         setTimeout(function () {
             i.tick();
@@ -220,10 +222,6 @@ window.addEventListener("load", () => {
         t = e_rotateText.dataset.period;
     e && new TextRotate(e_rotateText, e, t);
     let o = document.createElement("style");
-    (o.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }"),
-        document.body.appendChild(o);
+    ((o.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }"),
+        document.body.appendChild(o));
 });
-
-
-
-
