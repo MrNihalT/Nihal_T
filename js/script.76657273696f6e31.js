@@ -112,18 +112,20 @@ function setParticles(e, t) {
         retina_detect: !0,
     });
 }
-(e_showMoreProjects.addEventListener("click", () => {
-    if ("Show More" === e_showMoreProjects.innerText) {
-        let e = e_partProjects.querySelectorAll("[data-hidden]");
-        for (const t of e) t.classList.toggle("display-none");
-        e_showMoreProjects.innerText = "Show Less";
-    } else {
-        let e = e_partProjects.querySelectorAll("[data-hidden]");
-        for (const t of e) t.classList.toggle("display-none");
-        e_showMoreProjects.innerText = "Show More";
-    }
-}),
-    setParticles("#ffffff", "#ffffff"));
+if (e_showMoreProjects) {
+    e_showMoreProjects.addEventListener("click", () => {
+        if ("Show More" === e_showMoreProjects.innerText) {
+            let e = e_partProjects.querySelectorAll("[data-hidden]");
+            for (const t of e) t.classList.toggle("display-none");
+            e_showMoreProjects.innerText = "Show Less";
+        } else {
+            let e = e_partProjects.querySelectorAll("[data-hidden]");
+            for (const t of e) t.classList.toggle("display-none");
+            e_showMoreProjects.innerText = "Show More";
+        }
+    });
+}
+setParticles("#ffffff", "#ffffff");
 const quotes = [
     [
         "Perfection [in design] is achieved, not when there is nothing more to add, but when there is nothing left to take away.",
