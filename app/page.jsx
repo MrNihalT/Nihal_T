@@ -1,4 +1,5 @@
 import PortfolioEffects from "./PortfolioEffects";
+import ResumeLink from "./ResumeLink";
 import { getLatestCv, getProjects } from "../lib/portfolio";
 
 function InstagramIcon() {
@@ -117,9 +118,7 @@ export default async function Home() {
       />
       <header id="particles-js">
         <p className="display-topright text-size-xlarge">
-          <a className="link" href={cv.fileUrl} target="_blank" download>
-            Resume
-          </a>
+          <ResumeLink href={cv.fileUrl} />
         </p>
         <div className="header container">
           <p className="header__overline">hi! my name is</p>
