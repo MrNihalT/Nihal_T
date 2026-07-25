@@ -76,9 +76,9 @@ a {
 
 body,
 html {
-    height: 100%;
+    min-height: 100%;
     scroll-behavior: smooth;
-    font-family: Poppins, Roboto, sans-serif;
+    font-family: var(--font-poppins), Poppins, Roboto, sans-serif;
     background-color: var(--primary-color);
     color: var(--secondary-color);
     line-height: 1.6;
@@ -337,14 +337,16 @@ button.btn-rounded:hover {
 }
 
 .grid.grid--projects {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
 }
 
 #particles-js {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 100svh;
+    min-height: 100svh;
     background-color: var(--primary-color);
-    background-image: url("");
+    background-image: none;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -383,9 +385,12 @@ canvas {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    height: 100%;
+    height: 100svh;
+    min-height: 100svh;
     position: relative;
     z-index: 2;
+    text-align: left;
+    padding-left: clamp(2rem, 10vw, 8rem);
 }
 
 .header .header__overline {
@@ -550,10 +555,12 @@ img.responsive {
 }
 
 .project-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     top: 0;
     position: relative;
-    max-width: 340px;
+    width: 100%;
+    max-width: none;
     background-color: var(--dark-color);
     color: var(--light-color);
     border-radius: 4px;
@@ -595,6 +602,8 @@ img.responsive {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex: 1;
+    height: 100%;
 }
 
 .project-card .project-card__title {
@@ -606,6 +615,9 @@ img.responsive {
 }
 
 .project-card .project-card__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     min-height: 250px;
 }
 
@@ -618,11 +630,13 @@ img.responsive {
 
 .project-card p.project-card__brief {
     font-size: 14px;
+    line-height: 1.75;
+    white-space: pre-line;
 }
 
 .project-card .project-card__links {
     list-style: none;
-    margin: 0;
+    margin: 0 0 1.75rem;
     padding: 0;
 }
 
@@ -634,7 +648,7 @@ img.responsive {
     margin-bottom: 0;
     list-style: none;
     text-transform: lowercase;
-    margin: 0;
+    margin: auto 0 0;
     padding: 0;
 }
 
@@ -993,7 +1007,6 @@ nav.navbar span {
 
     .grid.grid--projects {
         grid-template-columns: 1fr;
-        display: block;
     }
 
     nav.navbar span {
@@ -1008,5 +1021,276 @@ nav.navbar span {
 @media screen and (max-width: 395px) {
     .project-card .project-card__extra {
         display: none;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .container {
+        width: min(90%, 70.5rem);
+        padding: 1.5rem 0;
+    }
+
+    .display-topright {
+        top: 14px;
+        right: 18px;
+    }
+
+    .display-bottomleft {
+        left: 18px;
+        bottom: 14px;
+    }
+
+    .display-bottomright {
+        right: 18px;
+        bottom: 14px;
+    }
+
+    .header {
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .text-size-xlarge {
+        font-size: 1.05rem;
+    }
+
+    .header .header__title {
+        font-size: 2.55rem;
+    }
+
+    .header .header__subtitle {
+        font-size: 1.18rem;
+    }
+
+    .heading h2 {
+        font-size: 1.85rem;
+    }
+
+    #partAbout {
+        margin-top: 4rem;
+    }
+
+    .tagcloud {
+        margin-top: 1.5rem;
+        min-height: 19rem;
+    }
+
+    .project-card {
+        padding: 28px 20px;
+        margin-bottom: 1rem;
+    }
+
+    .project-card .project-card__content {
+        min-height: auto;
+    }
+}
+
+.admin-shell {
+    width: min(92%, 72rem);
+    margin-inline: auto;
+    padding-block: 3rem;
+}
+
+.admin-shell--center {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.admin-header h1,
+.admin-panel h1 {
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.admin-panel {
+    background: var(--dark-color);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.admin-panel--narrow {
+    width: min(100%, 26rem);
+}
+
+.admin-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.admin-form label {
+    display: grid;
+    gap: 0.35rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.admin-form input,
+.admin-form textarea {
+    width: 100%;
+    border: 1px solid var(--primary-color-alt);
+    border-radius: 6px;
+    padding: 0.75rem 0.85rem;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    font: inherit;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+    outline: 2px solid var(--tertiary-color);
+    outline-offset: 2px;
+}
+
+.admin-grid-two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.admin-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.admin-row > label:first-child {
+    max-width: 9rem;
+}
+
+.admin-checkbox {
+    display: flex !important;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.admin-checkbox input {
+    width: auto;
+}
+
+.admin-project-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.admin-project-card {
+    border-top: 1px solid var(--primary-color-alt);
+    padding-top: 1rem;
+}
+
+.admin-cv-list {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.admin-cv-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--primary-color-alt);
+    padding-top: 1rem;
+}
+
+.admin-cv-item h3,
+.admin-cv-item p {
+    margin: 0;
+}
+
+.admin-cv-item h3 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+.admin-cv-item p {
+    color: var(--secondary-color-alt);
+    font-size: 0.9rem;
+}
+
+.admin-cv-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.admin-cv-actions button,
+.admin-cv-actions .admin-danger {
+    margin: 0;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.85rem;
+}
+
+.admin-pill {
+    display: inline-block;
+    margin-top: 0.4rem;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 999px;
+    color: var(--tertiary-color);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.1rem 0.55rem;
+}
+
+.admin-danger {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+    margin-top: 1rem;
+}
+
+.admin-danger:hover {
+    background: #ff6b6b;
+    color: var(--primary-color);
+}
+
+.admin-alert {
+    border-left: 4px solid var(--tertiary-color);
+    background: rgba(28, 228, 128, 0.08);
+    padding: 0.85rem 1rem;
+    color: var(--secondary-color);
+}
+
+.admin-success {
+    border-left: 4px solid var(--tertiary-color);
+    background: rgba(28, 228, 128, 0.14);
+    padding: 0.85rem 1rem;
+    color: var(--secondary-color);
+}
+
+@media screen and (max-width: 720px) {
+    .admin-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-panel {
+        padding: 1rem;
+    }
+
+    .admin-cv-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-cv-actions {
+        justify-content: flex-start;
     }
 }
